@@ -6,6 +6,11 @@ close all;
 % Loading the spike count dataset used in the paper. Please change the path
 % of the folder accordingly.
 load('/Users/aishp/Documents/Data/dataset_overlapbins_fefdl.mat');
+% Pre-processing data to obtain spike counts and mean beaseline value in 100ms windows (50ms step) from spike times
+% For lpfc
+[m_dl,st_dl,dataset_dl,dataset_e_dl,m_e_dl,st_e_dl] = PreProcess(dataset_lpfc,dataset_e_lpfc);
+% For fef
+[m,st,dataset,dataset_e,m_e,st_e] = PreProcess(dataset_fef,dataset_e_fef);
 load('/Users/aishp/Documents/Data/color_map_fig4.mat');
 % As the code takes a while to run (each iteration can take about 30-150 seconds depending
 % on the analysis and we have 1000 iterations), we also have a folder with
