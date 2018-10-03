@@ -1,4 +1,4 @@
-function [projected_data,label,projected_data_e,label_e] =  NeuralTraj_v2(dataset,dataset_e,trials,session,etrials,count,m,st,m_e,st_e,xc1,xc2,Test)
+function [projected_data,label,projected_data_e,label_e] =  NeuralTraj_v2(dataset,dataset_e,trials,session,etrials,count,m,st,m_e,st_e,space_bins,Test)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This code computes the projection of neural activity onto
 % principal components generated from correct trials. Please note that even
@@ -70,7 +70,7 @@ function [projected_data,label,projected_data_e,label_e] =  NeuralTraj_v2(datase
 pr_data = [];
 loc = unique(training_label);
 % Looping through time bins from xc1 to xc2 to build the data for PCA space
-for i_b = xc1:xc2
+for i_b = space_bins
     % Initializing the variable for train data (averaged across trial) 
     train_data = zeros(count,length(unique(training_label)));
     % Looping through the seven trial labels.
